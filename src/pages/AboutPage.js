@@ -23,7 +23,8 @@ const AboutPage = () => {
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        minHeight: "100vh",
+        minHeight: "86vh", // Make sure it takes full height
+        maxHeight: "auto",
         color: "#fff",
         position: "relative",
         overflow: "hidden",
@@ -56,10 +57,10 @@ const AboutPage = () => {
           <Typography
             variant="body1"
             sx={{
-              marginBottom: 3,
+              marginBottom: 4,
               fontWeight: 600,
               lineHeight: 1.6,
-              textAlign: "justify",
+              textAlign: "center",
               color: "#432818",
               fontSize: { xs: "0.9rem", md: "1rem" }, // Responsive font size
             }}
@@ -75,9 +76,42 @@ const AboutPage = () => {
             da yansıtır. Her lokmamızda, ailemizin sıcaklığını ve kalitemizi
             hissetmenizi sağlamak için buradayız.
           </Typography>
+
+          <Typography
+            variant="h4"
+            sx={{
+              color: "#432818",
+              fontWeight: "bold",
+              textAlign: "center",
+              marginBottom: 2,
+              fontSize: { xs: "1.5rem", md: "2rem" }, // Responsive font size
+            }}
+          >
+            Misyonumuz
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: "#432818",
+              fontWeight: 600,
+              marginBottom: 3,
+              textAlign: "center",
+              lineHeight: 1.6,
+              fontSize: { xs: "0.9rem", md: "1rem" }, // Responsive font size
+            }}
+          >
+            Müşterilerimize en iyi tost deneyimini sunarak her lokmada mutluluk
+            yaratmayı hedefliyoruz. Bizim için tost, yalnızca bir yiyecek değil,
+            aynı zamanda bir keyif ve paylaşım anıdır. Bu nedenle, kaliteli
+            malzemeleri titizlikle seçiyor ve ustaca bir araya getirerek
+            sağlıklı, lezzetli ve doyurucu ürünler sunmaktayız. Müşteri
+            memnuniyetini ön planda tutarak, her zaman yenilikçi tarifler
+            geliştirmeye ve lezzet anlayışımızı sürekli olarak genişletmeye
+            kararlıyız.
+          </Typography>
         </Box>
 
-        {/* Misyonumuz Bölümü */}
+        {/* Misyonumuz Bölümü
         <Container
           sx={{
             textAlign: "center",
@@ -93,38 +127,9 @@ const AboutPage = () => {
               animation: `${fadeIn} 1.5s ease-in-out`,
             }}
           >
-            <Typography
-              variant="h4"
-              sx={{
-                color: "#432818",
-                fontWeight: "bold",
-                marginBottom: 2,
-                fontSize: { xs: "1.5rem", md: "2rem" }, // Responsive font size
-              }}
-            >
-              Misyonumuz
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                color: "#432818",
-                fontWeight: 600,
-                marginBottom: 3,
-                lineHeight: 1.6,
-                fontSize: { xs: "0.9rem", md: "1rem" }, // Responsive font size
-              }}
-            >
-              Müşterilerimize en iyi tost deneyimini sunarak her lokmada
-              mutluluk yaratmayı hedefliyoruz. Bizim için tost, yalnızca bir
-              yiyecek değil, aynı zamanda bir keyif ve paylaşım anıdır. Bu
-              nedenle, kaliteli malzemeleri titizlikle seçiyor ve ustaca bir
-              araya getirerek sağlıklı, lezzetli ve doyurucu ürünler
-              sunmaktayız. Müşteri memnuniyetini ön planda tutarak, her zaman
-              yenilikçi tarifler geliştirmeye ve lezzet anlayışımızı sürekli
-              olarak genişletmeye kararlıyız.
-            </Typography>
+            
           </Box>
-        </Container>
+        </Container> */}
       </Box>
 
       {/* Footer */}
