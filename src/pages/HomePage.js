@@ -2,13 +2,12 @@ import React from "react";
 import { Container, Typography, Button, Grid, Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/system";
-import image1 from "../assets/ayvalikTostu.jpg";
-import image2 from "../assets/kumru.jpg";
-import sandwichIcon from "../assets/sandwich.svg";
-import truckIcon from "../assets/truck.svg";
-import tableIcon from "../assets/table.svg";
-import walletIcon from "../assets/wallet.svg";
-import Footer from "../components/Footer";
+import image1 from "../assets/toasts/musto.jpg";
+import image2 from "../assets/toasts/ksSandwich.jpg";
+import sandwichIcon from "../assets/icons/sandwich.svg";
+import truckIcon from "../assets/icons/truck.svg";
+import tableIcon from "../assets/icons/table.svg";
+import walletIcon from "../assets/icons/wallet.svg";
 
 const HeroSection = styled(Box)(({ theme }) => ({
   position: "relative",
@@ -70,7 +69,7 @@ const FeatureItem = styled(Box)(({ theme }) => ({
   margin: theme.spacing(1),
   color: "#ffffff",
   transition: "transform 0.3s, background-color 0.3s",
-  textAlign: "center", // Ensure text is centered
+  textAlign: "center",
   "&:hover": {
     transform: "scale(1.05)",
     backgroundColor: "#a88b4d",
@@ -221,7 +220,6 @@ const HomePage = () => {
           ))}
         </Grid>
       </Container>
-      <Footer /> {/* Include the Footer component here */}
     </div>
   );
 };

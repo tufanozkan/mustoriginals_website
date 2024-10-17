@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Grid, Typography, Paper } from "@mui/material";
-import { Phone, Email, LocationOn } from "@mui/icons-material";
-import Map from "../components/Map"; // Google Maps component
-import Footer from "../components/Footer";
-import { useMediaQuery } from "@mui/material"; // Import useMediaQuery
+import { Phone, Email, LocationOn, Instagram } from "@mui/icons-material";
+import Map from "../components/Map";
+import { useMediaQuery } from "@mui/material";
 
 const CommunicatePage = () => {
   // Media query to check if screen width is less than 1025px
   const isMobileOrTablet = useMediaQuery("(max-width: 1025px)");
+
+  // State for managing the animation trigger
+  const [animate, setAnimate] = useState(false);
+
+  // useEffect to trigger the animation on page load
+  useEffect(() => {
+    setAnimate(true);
+  }, []);
 
   return (
     <Box
@@ -15,11 +22,25 @@ const CommunicatePage = () => {
         display: "flex",
         flexDirection: "column",
         backgroundColor: "#ffe6a7",
-        minHeight: "86vh", // Make sure it takes full height
+        minHeight: "86vh",
         maxHeight: "auto",
       }}
     >
-      {/* You can add a header component here if you have one */}
+      <Typography
+        variant="h4"
+        sx={{
+          marginTop: 5,
+          alignSelf: "center",
+          color: "#432818",
+          fontSize: { xs: "1.5rem", md: "2rem" },
+          fontFamily: "'Poppins', sans-serif",
+          letterSpacing: 1.5,
+          textTransform: "uppercase",
+          textShadow: "1px 1px 2px rgba(0, 0, 0, 0.3)",
+        }}
+      >
+        BİZE ULAŞIN
+      </Typography>
       <Box
         sx={{
           flexGrow: 1,
@@ -33,35 +54,35 @@ const CommunicatePage = () => {
           container
           spacing={4}
           direction={isMobileOrTablet ? "column" : "row"}
-          sx={{ maxWidth: 1200, flexGrow: 1 }}
+          sx={{
+            maxWidth: 1200,
+            flexGrow: 1,
+            opacity: animate ? 1 : 0,
+            transition: "opacity 1.5s ease-in-out",
+          }}
         >
           {/* Responsive Grid Layout */}
-          <Grid item xs={12} md={6}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{ display: "flex", flexDirection: "column", height: "100%" }}
+          >
             <Paper
               elevation={6}
-              sx={{ padding: { xs: 3, sm: 4 }, borderRadius: 2 }}
+              sx={{
+                padding: { xs: 3, sm: 4 },
+                borderRadius: 2,
+                flexGrow: 1,
+              }}
             >
-              <Typography
-                variant="h4"
-                gutterBottom
-                sx={{
-                  color: "#432818",
-                  fontSize: { xs: "1.5rem", md: "2rem" },
-                  fontFamily: "'Poppins', sans-serif", // Example Google Font
-                  letterSpacing: 1.5,
-                  textTransform: "uppercase",
-                  textShadow: "1px 1px 2px rgba(0, 0, 0, 0.3)", // Subtle shadow for depth
-                }}
-              >
-                BİZE ULAŞIN
-              </Typography>
               <Typography
                 variant="h6"
                 gutterBottom
                 sx={{
                   color: "#bb9457",
                   fontSize: { xs: "1.2rem", md: "1.5rem" },
-                  fontFamily: "'Poppins', sans-serif", // Example Google Font
+                  fontFamily: "'Poppins', sans-serif",
                   letterSpacing: 1,
                   textTransform: "capitalize",
                 }}
@@ -76,11 +97,15 @@ const CommunicatePage = () => {
                 },
                 {
                   icon: <Phone sx={{ mr: 1, color: "#6f1d1b" }} />,
-                  text: "+90 553 134 15 55",
+                  text: "+90 545 215 07 74",
                 },
                 {
                   icon: <Email sx={{ mr: 1, color: "#6f1d1b" }} />,
                   text: "info@musto.com",
+                },
+                {
+                  icon: <Instagram sx={{ mr: 1, color: "#6f1d1b" }} />,
+                  text: "@musto_gida",
                 },
               ].map((contact, index) => (
                 <Box
@@ -92,7 +117,7 @@ const CommunicatePage = () => {
                     backgroundColor: "#ffffff",
                     borderRadius: 1,
                     padding: 2,
-                    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // Add shadow for depth
+                    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
                   }}
                 >
                   {contact.icon}
@@ -109,17 +134,38 @@ const CommunicatePage = () => {
               ))}
             </Paper>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{ display: "flex", flexDirection: "column", height: "80%" }}
+          >
             <Paper
               elevation={6}
-              sx={{ padding: { xs: 3, sm: 4 }, borderRadius: 2 }}
+              sx={{
+                padding: { xs: 3, sm: 4 },
+                borderRadius: 2,
+                flexGrow: 1,
+              }}
             >
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{
+                  color: "#bb9457",
+                  fontSize: { xs: "1.2rem", md: "1.5rem" },
+                  fontFamily: "'Poppins', sans-serif",
+                  letterSpacing: 1,
+                  textTransform: "capitalize",
+                }}
+              >
+                Adres Bilgimiz
+              </Typography>
               <Map />
             </Paper>
           </Grid>
         </Grid>
       </Box>
-      <Footer />
     </Box>
   );
 };

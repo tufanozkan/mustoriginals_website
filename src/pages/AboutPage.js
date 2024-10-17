@@ -1,16 +1,17 @@
 import React from "react";
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { keyframes } from "@mui/system";
-import Footer from "../components/Footer";
-import image from "../assets/fabric.jpg";
+import image from "../assets/production.jpg";
 
-// Animation definition
-const fadeIn = keyframes`
-  from {
+// Yavaşça yukarıdan aşağı inen animasyon
+const slideDown = keyframes`
+  0% {
     opacity: 0;
+    transform: translateY(-50px);
   }
-  to {
+  100% {
     opacity: 1;
+    transform: translateY(0);
   }
 `;
 
@@ -23,7 +24,7 @@ const AboutPage = () => {
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        minHeight: "86vh", // Make sure it takes full height
+        minHeight: "86vh",
         maxHeight: "auto",
         color: "#fff",
         position: "relative",
@@ -32,14 +33,14 @@ const AboutPage = () => {
     >
       {/* Main content area */}
       <Box sx={{ flex: 1 }}>
-        {/* Hakkımızda Bölümü */}
         <Box
           sx={{
             backgroundColor: "rgba(187, 148, 87, 0.8)",
-            margin: { xs: 2, md: 8 }, // Responsive margin
-            padding: { xs: 2, md: 4 }, // Responsive padding
+            margin: { xs: 2, md: 8 },
+            padding: { xs: 2, md: 4 },
             borderRadius: 2,
-            animation: `${fadeIn} 1s ease-in-out`,
+            animation: `${slideDown} 1s ease-in-out`,
+            animationFillMode: "forwards",
           }}
         >
           <Typography
@@ -49,7 +50,7 @@ const AboutPage = () => {
               color: "#432818",
               fontWeight: "bold",
               textAlign: "center",
-              fontSize: { xs: "1.5rem", sm: "2rem", md: "3rem" }, // Responsive font size
+              fontSize: { xs: "1.5rem", sm: "2rem", md: "3rem" },
             }}
           >
             Hakkımızda
@@ -62,7 +63,7 @@ const AboutPage = () => {
               lineHeight: 1.6,
               textAlign: "center",
               color: "#432818",
-              fontSize: { xs: "0.9rem", md: "1rem" }, // Responsive font size
+              fontSize: { xs: "0.9rem", md: "1rem" },
             }}
           >
             Musto Originals şirketi olarak, kalite anlayışımızın köklerinin
@@ -84,7 +85,7 @@ const AboutPage = () => {
               fontWeight: "bold",
               textAlign: "center",
               marginBottom: 2,
-              fontSize: { xs: "1.5rem", md: "2rem" }, // Responsive font size
+              fontSize: { xs: "1.5rem", md: "2rem" },
             }}
           >
             Misyonumuz
@@ -97,7 +98,7 @@ const AboutPage = () => {
               marginBottom: 3,
               textAlign: "center",
               lineHeight: 1.6,
-              fontSize: { xs: "0.9rem", md: "1rem" }, // Responsive font size
+              fontSize: { xs: "0.9rem", md: "1rem" },
             }}
           >
             Müşterilerimize en iyi tost deneyimini sunarak her lokmada mutluluk
@@ -110,30 +111,7 @@ const AboutPage = () => {
             kararlıyız.
           </Typography>
         </Box>
-
-        {/* Misyonumuz Bölümü
-        <Container
-          sx={{
-            textAlign: "center",
-            marginTop: { xs: 2, md: 4 },
-            marginBottom: 8,
-          }}
-        >
-          <Box
-            sx={{
-              backgroundColor: "rgba(187, 148, 87, 0.8)",
-              borderRadius: 2,
-              padding: { xs: 2, md: 4 }, // Responsive padding
-              animation: `${fadeIn} 1.5s ease-in-out`,
-            }}
-          >
-            
-          </Box>
-        </Container> */}
       </Box>
-
-      {/* Footer */}
-      <Footer />
     </Box>
   );
 };
