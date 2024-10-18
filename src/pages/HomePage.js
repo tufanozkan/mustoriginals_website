@@ -115,6 +115,7 @@ const HomePage = () => {
               border: "2px solid #6f1d1b",
               borderRadius: "34px",
               backgroundColor: "#ffe6a7",
+              fontFamily: "'Poppins', sans-serif",
               fontWeight: 600,
               transition: "all 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
               overflow: "hidden",
@@ -127,6 +128,7 @@ const HomePage = () => {
                 width: "50px",
                 height: "50px",
                 borderRadius: "inherit",
+                fontFamily: "'Poppins', sans-serif",
                 scale: 0,
                 zIndex: -1,
                 backgroundColor: "#6f1d1b",
@@ -138,6 +140,7 @@ const HomePage = () => {
               "&:hover": {
                 color: "#ffe6a7",
                 transform: "scale(1.1)",
+                fontFamily: "'Poppins', sans-serif",
                 boxShadow: "0 0px 20px #6f1d1b",
               },
               "&:active": {
@@ -199,18 +202,19 @@ const HomePage = () => {
                   variant="h5"
                   sx={{
                     cursor: "default",
-                    fontFamily: "'Raleway', sans-serif",
-                    fontWeight: "700",
+                    fontFamily: "'Poppins', sans-serif",
+                    fontWeight: "800",
                   }}
                 >
                   {feature.title}
                 </Typography>
                 <Typography
                   sx={{
-                    fontFamily: "'Raleway', sans-serif",
+                    fontFamily: "'Poppins', sans-serif",
                     fontSize: "1rem",
                     textAlign: "center",
                     cursor: "default",
+                    marginTop: 1,
                   }}
                 >
                   {feature.description}

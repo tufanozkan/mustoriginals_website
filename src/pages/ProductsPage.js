@@ -8,10 +8,14 @@ import {
   CardMedia,
   CardContent,
   Menu,
+  Dialog,
+  DialogTitle,
+  DialogContent,
   MenuItem,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import FilterListIcon from "@mui/icons-material/FilterList";
+import InfoIcon from "@mui/icons-material/Info";
 import musto from "../assets/toasts/musto.jpg";
 import kasarli from "../assets/toasts/kasarli.jpg";
 import sucuklu from "../assets/toasts/sucuklu.jpg";
@@ -43,10 +47,28 @@ const ProductImage = styled(CardMedia)(({ theme }) => ({
 // Title styles
 const ProductTitle = styled(Typography)(({ theme }) => ({
   fontFamily: "'Playfair Display', serif",
+  fontSize: "16px",
   fontWeight: 600,
   textAlign: "center",
   color: "#6F1D1B",
   marginTop: 3,
+}));
+
+// Styled Dialog components
+const StyledDialog = styled(Dialog)(({ theme }) => ({
+  textAlign: "center",
+
+  "& .MuiDialogTitle-root": {
+    backgroundColor: "#FFE6A7",
+    color: "#6F1D1B",
+    fontWeight: 600,
+    fontFamily: "'Poppins', sans-serif",
+  },
+  "& .MuiDialogContent-root": {
+    padding: 15,
+    fontWeight: 900,
+    backgroundColor: "#FFF9E6",
+  },
 }));
 
 const allProducts = [
@@ -55,7 +77,7 @@ const allProducts = [
   { id: 3, name: "Ayvalık Tostu", image: ayvalik, category: "tost" },
   {
     id: 4,
-    name: "Beyaz Penirli Sandwich",
+    name: "Beyaz Peynirli Sandwich",
     image: bpSandwich,
     category: "sandwich",
   },
@@ -173,6 +195,8 @@ const nutritionFacts = [
 const ProductsPage = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [category, setCategory] = useState("all");
+  const [nutritionOpen, setNutritionOpen] = useState(false);
+  const [selectedNutrition, setSelectedNutrition] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -183,6 +207,19 @@ const ProductsPage = () => {
     if (selectedCategory) {
       setCategory(selectedCategory);
     }
+  };
+
+  const handleNutritionOpen = (productName) => {
+    const productNutrition = nutritionFacts.find(
+      (item) => item.name === productName
+    );
+    setSelectedNutrition(productNutrition);
+    setNutritionOpen(true);
+  };
+
+  const handleNutritionClose = () => {
+    setNutritionOpen(false);
+    setSelectedNutrition(null);
   };
 
   const filteredProducts =
@@ -229,13 +266,138 @@ const ProductsPage = () => {
                   alt={product.name}
                 />
                 <CardContent>
-                  <ProductTitle variant="h6">{product.name}</ProductTitle>
+                  <Grid
+                    container
+                    alignItems="center"
+                    justifyContent="space-between"
+                  >
+                    <ProductTitle variant="h6">{product.name}</ProductTitle>
+                    <IconButton
+                      onClick={() => handleNutritionOpen(product.name)}
+                    >
+                      <InfoIcon />
+                    </IconButton>
+                  </Grid>
                 </CardContent>
               </ProductCard>
             </Grid>
           ))}
         </Grid>
       </Container>
+
+      {/* Nutrition Dialog */}
+      <StyledDialog
+        open={nutritionOpen}
+        onClose={handleNutritionClose}
+        aria-labelledby="nutrition-dialog-title"
+        aria-describedby="nutrition-dialog-description"
+      >
+        <DialogTitle id="nutrition-dialog-title">
+          {selectedNutrition?.name} - Besin Değerleri
+        </DialogTitle>
+        <DialogContent>
+          {selectedNutrition && (
+            <div>
+              <Typography
+                variant="h8"
+                sx={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                Enerji:
+                <Typography
+                  variant="body1"
+                  sx={{
+                    ml: 1,
+                    display: "inline",
+                    fontFamily: "'Poppins', sans-serif",
+                  }}
+                >
+                  {selectedNutrition.nutrition.energy} <br />
+                </Typography>
+              </Typography>
+              <Typography
+                variant="h8"
+                sx={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                Yağ:
+                <Typography
+                  variant="body1"
+                  sx={{
+                    ml: 1,
+                    display: "inline",
+                    fontFamily: "'Poppins', sans-serif",
+                  }}
+                >
+                  {selectedNutrition.nutrition.fat} <br />
+                </Typography>
+              </Typography>
+              <Typography
+                variant="h8"
+                sx={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                Doymuş Yağ:
+                <Typography
+                  variant="body1"
+                  sx={{
+                    ml: 1,
+                    display: "inline",
+                    fontFamily: "'Poppins', sans-serif",
+                  }}
+                >
+                  {selectedNutrition.nutrition.saturatedFat} <br />
+                </Typography>
+              </Typography>
+              <Typography
+                variant="h8"
+                sx={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                Karbonhidrat:
+                <Typography
+                  variant="body1"
+                  sx={{
+                    ml: 1,
+                    display: "inline",
+                    fontFamily: "'Poppins', sans-serif",
+                  }}
+                >
+                  {selectedNutrition.nutrition.carbs} <br />
+                </Typography>
+              </Typography>
+              <Typography
+                variant="h8"
+                sx={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                Protein:
+                <Typography
+                  variant="body1"
+                  sx={{
+                    ml: 1,
+                    display: "inline",
+                    fontFamily: "'Poppins', sans-serif",
+                  }}
+                >
+                  {selectedNutrition.nutrition.protein} <br />
+                </Typography>
+              </Typography>
+              <Typography
+                variant="h8"
+                sx={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                Tuz:
+                <Typography
+                  variant="body1"
+                  sx={{
+                    ml: 1,
+                    display: "inline",
+                    fontFamily: "'Poppins', sans-serif",
+                  }}
+                >
+                  {selectedNutrition.nutrition.salt}
+                </Typography>
+              </Typography>
+            </div>
+          )}
+        </DialogContent>
+      </StyledDialog>
     </div>
   );
 };
