@@ -132,12 +132,11 @@ const HomePage = () => {
             component={Link}
             to="/products"
             sx={{
-              marginTop: 2,
               cursor: "pointer",
               padding: "10px 24px",
               fontSize: { xs: "16px", sm: "18px" }, // Adjusted font size for button
               color: "#6f1d1b",
-              border: "2px solid #6f1d1b",
+              border: "3px solid #ffe6a7",
               borderRadius: "34px",
               backgroundColor: "#ffe6a7",
               fontWeight: 600,
