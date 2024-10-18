@@ -38,21 +38,21 @@ const AboutPage = () => {
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: "rgba(187, 148, 87, 0.8)",
-            margin: { xs: 3, md: 9 },
-            padding: { xs: 3, md: 6 },
+            margin: { xs: 3, md: 8 },
+            padding: { xs: 3, md: 5 },
             borderRadius: 2,
             animation: `${slideDown} 1s ease-in-out`,
             animationFillMode: "forwards",
           }}
         >
           <Typography
-            variant="h2"
+            variant="h3"
             gutterBottom
             sx={{
               color: "#432818",
               fontWeight: "bold",
               textAlign: "center",
-              fontSize: { xs: "1.5rem", sm: "2rem", md: "3rem" },
+              fontSize: { xs: "1.5rem", md: "2rem" },
             }}
           >
             Hakkımızda
@@ -65,7 +65,7 @@ const AboutPage = () => {
               lineHeight: 1.6,
               textAlign: "center",
               color: "#432818",
-              fontSize: { xs: "0.9rem", md: "1rem" },
+              fontSize: { xs: "0.9rem", md: "1.1rem" },
             }}
           >
             Musto Originals şirketi olarak, kalite anlayışımızın köklerinin
@@ -81,12 +81,12 @@ const AboutPage = () => {
           </Typography>
 
           <Typography
-            variant="h4"
+            variant="h3"
+            gutterBottom
             sx={{
               color: "#432818",
               fontWeight: "bold",
               textAlign: "center",
-              marginBottom: 2,
               fontSize: { xs: "1.5rem", md: "2rem" },
             }}
           >
@@ -95,13 +95,11 @@ const AboutPage = () => {
           <Typography
             variant="body1"
             sx={{
-              color: "#432818",
               fontWeight: 600,
-              marginBottom: 3,
-              textAlign: "center",
               lineHeight: 1.6,
-              marginTop: 3,
-              fontSize: { xs: "0.9rem", md: "1rem" },
+              textAlign: "center",
+              color: "#432818",
+              fontSize: { xs: "0.9rem", md: "1.1rem" },
             }}
           >
             Müşterilerimize en iyi tost deneyimini sunarak her lokmada mutluluk

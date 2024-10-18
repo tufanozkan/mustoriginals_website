@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Typography, Button, Grid, Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/system";
-import image1 from "../assets/toasts/kasarli.jpg";
+import image from "../assets/toasts/musto.jpg";
 import sandwichIcon from "../assets/icons/sandwich.svg";
 import truckIcon from "../assets/icons/truck.svg";
 import tableIcon from "../assets/icons/table.svg";
@@ -11,43 +11,32 @@ import walletIcon from "../assets/icons/wallet.svg";
 const HeroSection = styled(Box)(({ theme }) => ({
   position: "relative",
   backgroundColor: "#6F1D1B",
+  marginTop: 0,
   height: "65vh",
   display: "flex",
   alignItems: "center",
-  justifyContent: "space-between",
+  justifyContent: "flex-start",
   padding: theme.spacing(4),
   overflow: "hidden",
-  "&:before": {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    right: 0,
-    width: "50%",
-    height: "100%",
-    backgroundImage: `url(${image1})`,
-    borderLeft: "4px solid #ffe6a7",
-    borderTop: "4px solid #ffe6a7",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    zIndex: 0,
-    animation: "slideInImage 2.1s ease-out forwards", // Animation for the image
-    transform: "translateX(100%)", // Start off-screen to the right
-    opacity: 0, // Initially hidden
+  flexDirection: "column", // Column layout for mobile and tablet
+  "@media (min-width:900px)": {
+    flexDirection: "row", // Row layout for larger screens
+    justifyContent: "flex-start",
   },
   "& h1, & button": {
     position: "relative",
     zIndex: 1,
-    opacity: 0, // Initially hidden
+    opacity: 0,
     animation: "slideIn 2.1s ease-out forwards",
   },
   "& h1": {
     color: "#fff",
-    fontFamily: "'Playfair Display', serif",
-    fontWeight: "700",
+    fontFamily: "Poppins, sans-serif",
+    fontWeight: "600",
     letterSpacing: "0.1em",
     textTransform: "uppercase",
-    fontSize: { xs: "2rem", sm: "3rem", md: "4rem", lg: "5rem" },
-    marginBottom: theme.spacing(3),
+    fontSize: { xs: "1.8rem", sm: "2.2rem", md: "3rem", lg: "4rem" }, // Adjusted for mobile
+    marginBottom: theme.spacing(2),
   },
   "@keyframes slideIn": {
     from: {
@@ -59,13 +48,28 @@ const HeroSection = styled(Box)(({ theme }) => ({
       opacity: 1,
     },
   },
+}));
+
+// Styled component for the background image
+const HeroImage = styled(Box)(({ theme }) => ({
+  position: "relative", // Changed from absolute to relative for stacking
+  width: "100%", // Full width for mobile view
+  height: "100%",
+  border: "2px solid #ffe6a7",
+  borderRadius: "12px",
+  backgroundImage: `url(${image})`,
+  backgroundSize: "cover", // Adjust background size to fit the container
+  backgroundPosition: "center",
+  zIndex: 0,
+  animation: "slideInImage 2.1s ease-out forwards",
+  opacity: 0,
   "@keyframes slideInImage": {
     from: {
-      transform: "translateX(100%)", // Start off-screen to the right
+      transform: "translateX(100%)",
       opacity: 0,
     },
     to: {
-      transform: "translateX(0)", // End at the original position
+      transform: "translateX(0)",
       opacity: 1,
     },
   },
@@ -98,9 +102,29 @@ const HomePage = () => {
   return (
     <div>
       <HeroSection>
-        <Box sx={{ width: "50%", zIndex: 1, textAlign: "left" }}>
-          {/* Sol tarafa içerik */}
-          <Typography variant="h2" component="h1">
+        <Box
+          sx={{
+            zIndex: 1,
+            textAlign: "center",
+            mb: { xs: 3, md: 3 },
+            width: { xs: "100%", sm: "100%", md: "50%" },
+            maxWidth: "500px",
+          }}
+        >
+          {/* Content on the left */}
+          <Typography
+            variant="h2"
+            component="h1"
+            sx={{
+              fontSize: {
+                xs: "1.5rem",
+                sm: "1.8rem",
+                md: "2.2rem",
+                lg: "3rem",
+              }, // Adjusted sizes for responsiveness
+              textAlign: "center", // Centered text for better aesthetics
+            }}
+          >
             Güçlü Lezzetlerle Tanışın
           </Typography>
           <Button
@@ -108,21 +132,22 @@ const HomePage = () => {
             component={Link}
             to="/products"
             sx={{
-              marginTop: 3,
+              marginTop: 2,
               cursor: "pointer",
               padding: "10px 24px",
-              fontSize: "18px",
+              fontSize: { xs: "16px", sm: "18px" }, // Adjusted font size for button
               color: "#6f1d1b",
               border: "2px solid #6f1d1b",
               borderRadius: "34px",
               backgroundColor: "#ffe6a7",
               fontWeight: 600,
+              fontFamily: "Poppins, sans-serif",
               transition: "all 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
               overflow: "hidden",
-              position: "relative", // Ensure position is relative for animation
+              position: "relative",
               zIndex: 2,
-              opacity: 0, // Initially hidden
-              animation: "slideIn 2.1s ease-out forwards", // Same animation
+              opacity: 0,
+              animation: "slideIn 2.1s ease-out forwards",
               "&::before": {
                 content: '""',
                 position: "absolute",
@@ -152,6 +177,7 @@ const HomePage = () => {
             Keşfet
           </Button>
         </Box>
+        <HeroImage />
       </HeroSection>
       <Container sx={{ py: 4 }}>
         <Typography
@@ -160,7 +186,7 @@ const HomePage = () => {
           textAlign="center"
           sx={{
             mb: 4,
-            fontFamily: "'Roboto', sans-serif",
+            fontFamily: "Poppins, sans-serif",
             fontWeight: "600",
             letterSpacing: "0.05em",
             color: "#6f1d1b",
@@ -193,7 +219,7 @@ const HomePage = () => {
               icon: tableIcon,
               title: "Profesyonel Mutfak Kalitesi",
               description:
-                "Ürünlerimiz, profesyonel mutfak standartlarında üretilir ve en yüksek kaliteyi evinize getirir. Her lokmada kalite ve lezzeti hissedin.",
+                "Ürünlerimiz, profesyonel mutfak standartlarında üretilir ve en yüksek kaliteyi evinize getirir.",
             },
           ].map((feature, index) => (
             <Grid item xs={12} md={6} key={index}>
@@ -204,7 +230,7 @@ const HomePage = () => {
                   sx={{
                     cursor: "default",
                     fontFamily: "'Poppins', sans-serif",
-                    fontWeight: "800",
+                    fontWeight: "700",
                   }}
                 >
                   {feature.title}

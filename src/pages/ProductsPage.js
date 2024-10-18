@@ -48,7 +48,7 @@ const ProductImage = styled(CardMedia)(({ theme }) => ({
 
 // Title styles
 const ProductTitle = styled(Typography)(({ theme }) => ({
-  fontFamily: "'Playfair Display', serif",
+  fontFamily: "'Poppins', sans-serif",
   fontSize: "16px",
   fontWeight: 600,
   textAlign: "center",
