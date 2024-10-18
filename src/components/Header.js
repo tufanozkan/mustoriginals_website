@@ -49,7 +49,7 @@ const Header = () => {
             letterSpacing: "0.1em", // Slight letter spacing for a modern look
           }}
         >
-          Musto Originals
+          Musto Gıda
         </Typography>
 
         {/* Desktop Menu, only shown on screens wider than 900px */}

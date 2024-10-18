@@ -2,8 +2,7 @@ import React from "react";
 import { Container, Typography, Button, Grid, Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/system";
-import image1 from "../assets/toasts/musto.jpg";
-import image2 from "../assets/toasts/ksSandwich.jpg";
+import image1 from "../assets/toasts/kasarli.jpg";
 import sandwichIcon from "../assets/icons/sandwich.svg";
 import truckIcon from "../assets/icons/truck.svg";
 import tableIcon from "../assets/icons/table.svg";
@@ -15,47 +14,60 @@ const HeroSection = styled(Box)(({ theme }) => ({
   height: "65vh",
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
-  textAlign: "center",
+  justifyContent: "space-between",
   padding: theme.spacing(4),
   overflow: "hidden",
   "&:before": {
     content: '""',
     position: "absolute",
     top: 0,
-    left: 0,
-    width: "50%",
-    height: "100%",
-    backgroundImage: `url(${image1})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    animation: "slideLeft 5s forwards",
-    zIndex: 0,
-  },
-  "&:after": {
-    content: '""',
-    position: "absolute",
-    top: 0,
     right: 0,
     width: "50%",
     height: "100%",
-    backgroundImage: `url(${image2})`,
+    backgroundImage: `url(${image1})`,
+    borderLeft: "4px solid #ffe6a7",
+    borderTop: "4px solid #ffe6a7",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    animation: "slideRight 5s forwards",
     zIndex: 0,
+    animation: "slideInImage 2.1s ease-out forwards", // Animation for the image
+    transform: "translateX(100%)", // Start off-screen to the right
+    opacity: 0, // Initially hidden
   },
-  "& h1, & p, & button": {
+  "& h1, & button": {
     position: "relative",
     zIndex: 1,
+    opacity: 0, // Initially hidden
+    animation: "slideIn 2.1s ease-out forwards",
   },
-  "@keyframes slideLeft": {
-    "0%": { transform: "translateX(-100%)" },
-    "100%": { transform: "translateX(0)" },
+  "& h1": {
+    color: "#fff",
+    fontFamily: "'Playfair Display', serif",
+    fontWeight: "700",
+    letterSpacing: "0.1em",
+    textTransform: "uppercase",
+    fontSize: { xs: "2rem", sm: "3rem", md: "4rem", lg: "5rem" },
+    marginBottom: theme.spacing(3),
   },
-  "@keyframes slideRight": {
-    "0%": { transform: "translateX(100%)" },
-    "100%": { transform: "translateX(0)" },
+  "@keyframes slideIn": {
+    from: {
+      transform: "translateX(-100%)",
+      opacity: 0,
+    },
+    to: {
+      transform: "translateX(0)",
+      opacity: 1,
+    },
+  },
+  "@keyframes slideInImage": {
+    from: {
+      transform: "translateX(100%)", // Start off-screen to the right
+      opacity: 0,
+    },
+    to: {
+      transform: "translateX(0)", // End at the original position
+      opacity: 1,
+    },
   },
 }));
 
@@ -86,19 +98,9 @@ const HomePage = () => {
   return (
     <div>
       <HeroSection>
-        <Container>
-          <Typography
-            variant="h2"
-            component="h1"
-            sx={{
-              fontFamily: "'Playfair Display', serif",
-              fontWeight: "700",
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "#6f1d1b",
-              fontSize: { xs: "2rem", sm: "3rem", md: "4rem", lg: "5rem" },
-            }}
-          >
+        <Box sx={{ width: "50%", zIndex: 1, textAlign: "left" }}>
+          {/* Sol tarafa içerik */}
+          <Typography variant="h2" component="h1">
             Güçlü Lezzetlerle Tanışın
           </Typography>
           <Button
@@ -108,18 +110,19 @@ const HomePage = () => {
             sx={{
               marginTop: 3,
               cursor: "pointer",
-              position: "relative",
               padding: "10px 24px",
               fontSize: "18px",
               color: "#6f1d1b",
               border: "2px solid #6f1d1b",
               borderRadius: "34px",
               backgroundColor: "#ffe6a7",
-              fontFamily: "'Poppins', sans-serif",
               fontWeight: 600,
               transition: "all 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
               overflow: "hidden",
+              position: "relative", // Ensure position is relative for animation
               zIndex: 2,
+              opacity: 0, // Initially hidden
+              animation: "slideIn 2.1s ease-out forwards", // Same animation
               "&::before": {
                 content: '""',
                 position: "absolute",
@@ -128,7 +131,6 @@ const HomePage = () => {
                 width: "50px",
                 height: "50px",
                 borderRadius: "inherit",
-                fontFamily: "'Poppins', sans-serif",
                 scale: 0,
                 zIndex: -1,
                 backgroundColor: "#6f1d1b",
@@ -140,7 +142,6 @@ const HomePage = () => {
               "&:hover": {
                 color: "#ffe6a7",
                 transform: "scale(1.1)",
-                fontFamily: "'Poppins', sans-serif",
                 boxShadow: "0 0px 20px #6f1d1b",
               },
               "&:active": {
@@ -150,7 +151,7 @@ const HomePage = () => {
           >
             Keşfet
           </Button>
-        </Container>
+        </Box>
       </HeroSection>
       <Container sx={{ py: 4 }}>
         <Typography
@@ -159,7 +160,7 @@ const HomePage = () => {
           textAlign="center"
           sx={{
             mb: 4,
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Roboto', sans-serif",
             fontWeight: "600",
             letterSpacing: "0.05em",
             color: "#6f1d1b",

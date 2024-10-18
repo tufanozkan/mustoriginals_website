@@ -58,7 +58,7 @@ const Footer = () => {
               href="mailto:info@musto.com"
               style={{ color: "#ffffff", textDecoration: "underline" }}
             >
-              info@musto.com
+              info@mustoinvest.com.tr
             </a>
           </Typography>
         </Grid>

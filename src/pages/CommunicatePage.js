@@ -101,7 +101,7 @@ const CommunicatePage = () => {
                 },
                 {
                   icon: <Email sx={{ mr: 1, color: "#6f1d1b" }} />,
-                  text: "info@musto.com",
+                  text: "info@mustoinvest.com.tr",
                 },
                 {
                   icon: <Instagram sx={{ mr: 1, color: "#6f1d1b" }} />,
