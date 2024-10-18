@@ -22,7 +22,7 @@ const CommunicatePage = () => {
         display: "flex",
         flexDirection: "column",
         backgroundColor: "#ffe6a7",
-        minHeight: "86vh",
+        minHeight: "80vh",
         maxHeight: "auto",
       }}
     >

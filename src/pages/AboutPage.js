@@ -24,7 +24,7 @@ const AboutPage = () => {
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        minHeight: "86vh",
+        minHeight: "80vh",
         maxHeight: "auto",
         color: "#fff",
         position: "relative",
@@ -35,9 +35,11 @@ const AboutPage = () => {
       <Box sx={{ flex: 1 }}>
         <Box
           sx={{
+            alignItems: "center",
+            justifyContent: "center",
             backgroundColor: "rgba(187, 148, 87, 0.8)",
-            margin: { xs: 2, md: 8 },
-            padding: { xs: 2, md: 4 },
+            margin: { xs: 3, md: 9 },
+            padding: { xs: 3, md: 6 },
             borderRadius: 2,
             animation: `${slideDown} 1s ease-in-out`,
             animationFillMode: "forwards",
@@ -98,6 +100,7 @@ const AboutPage = () => {
               marginBottom: 3,
               textAlign: "center",
               lineHeight: 1.6,
+              marginTop: 3,
               fontSize: { xs: "0.9rem", md: "1rem" },
             }}
           >
