@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import {
   Container,
@@ -11,6 +12,7 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
+  Fade,
   MenuItem,
 } from "@mui/material";
 import { styled } from "@mui/system";
@@ -57,15 +59,13 @@ const ProductTitle = styled(Typography)(({ theme }) => ({
 // Styled Dialog components
 const StyledDialog = styled(Dialog)(({ theme }) => ({
   textAlign: "center",
-
   "& .MuiDialogTitle-root": {
     backgroundColor: "#FFE6A7",
     color: "#6F1D1B",
-    fontWeight: 600,
+    fontWeight: 400,
     fontFamily: "'Poppins', sans-serif",
   },
   "& .MuiDialogContent-root": {
-    padding: 15,
     fontWeight: 900,
     backgroundColor: "#FFF9E6",
   },
@@ -98,96 +98,96 @@ const nutritionFacts = [
     id: 1,
     name: "Musto Tost",
     nutrition: {
-      energy: "289.7 kcal / 1218.6 kJ",
-      fat: "12.2 g",
-      saturatedFat: "4.6 g",
-      carbs: "34.1 g",
-      protein: "11.5 g",
-      salt: "0.9 g",
+      Energy: "289.7 kcal / 1218.6 kJ",
+      Fat: "12.2 g",
+      SaturatedFat: "4.6 g",
+      Carbs: "34.1 g",
+      Protein: "11.5 g",
+      Salt: "0.9 g",
     },
   },
   {
     id: 2,
     name: "Kumru",
     nutrition: {
-      energy: "279.8 kcal / 1176.3 kJ",
-      fat: "11.72 g",
-      saturatedFat: "3.9 g",
-      carbs: "32.7 g",
-      protein: "10.8 g",
-      salt: "1.0 g",
+      Energy: "279.8 kcal / 1176.3 kJ",
+      Fat: "11.72 g",
+      SaturatedFat: "3.9 g",
+      Carbs: "32.7 g",
+      Protein: "10.8 g",
+      Salt: "1.0 g",
     },
   },
   {
     id: 3,
     name: "Ayvalık Tostu",
     nutrition: {
-      energy: "289.7 kcal / 1218.6 kJ",
-      fat: "12.2 g",
-      saturatedFat: "4.6 g",
-      carbs: "34.1 g",
-      protein: "11.5 g",
-      salt: "0.9 g",
+      Energy: "289.7 kcal / 1218.6 kJ",
+      Fat: "12.2 g",
+      SaturatedFat: "4.6 g",
+      Carbs: "34.1 g",
+      Protein: "11.5 g",
+      Salt: "0.9 g",
     },
   },
   {
     id: 4,
     name: "Beyaz Peynirli Sandwich",
     nutrition: {
-      energy: "289.7 kcal / 1218.6 kJ",
-      fat: "12.2 g",
-      saturatedFat: "4.6 g",
-      carbs: "34.1 g",
-      protein: "11.5 g",
-      salt: "0.9 g",
+      Energy: "289.7 kcal / 1218.6 kJ",
+      Fat: "12.2 g",
+      SaturatedFat: "4.6 g",
+      Carbs: "34.1 g",
+      Protein: "11.5 g",
+      Salt: "0.9 g",
     },
   },
   {
     id: 5,
     name: "Kaşarlı Tost",
     nutrition: {
-      energy: "282 kcal / 1189 kJ",
-      fat: "8.3 g",
-      saturatedFat: "4.4 g",
-      carbs: "37.8 g",
-      protein: "13 g",
-      salt: "1.0 g",
+      Energy: "282 kcal / 1189 kJ",
+      Fat: "8.3 g",
+      SaturatedFat: "4.4 g",
+      Carbs: "37.8 g",
+      Protein: "13 g",
+      Salt: "1.0 g",
     },
   },
   {
     id: 6,
     name: "Hamburger",
     nutrition: {
-      energy: "210.8 kcal / 878.7 kJ",
-      fat: "7.4 g",
-      saturatedFat: "2.2 g",
-      carbs: "26.1 g",
-      protein: "8.9 g",
-      salt: "0.8 g",
+      Energy: "210.8 kcal / 878.7 kJ",
+      Fat: "7.4 g",
+      SaturatedFat: "2.2 g",
+      Carbs: "26.1 g",
+      Protein: "8.9 g",
+      Salt: "0.8 g",
     },
   },
   {
     id: 7,
     name: "Kaşarlı Salamlı Sandwich",
     nutrition: {
-      energy: "210.8 kcal / 878.7 kJ",
-      fat: "7.4 g",
-      saturatedFat: "2.2 g",
-      carbs: "26.1 g",
-      protein: "8.9 g",
-      salt: "0.8 g",
+      Energy: "210.8 kcal / 878.7 kJ",
+      Fat: "7.4 g",
+      SaturatedFat: "2.2 g",
+      Carbs: "26.1 g",
+      Protein: "8.9 g",
+      Salt: "0.8 g",
     },
   },
   {
     id: 8,
     name: "Sucuklu Tost",
     nutrition: {
-      energy: "329.7 kcal / 1718.6 kJ",
-      fat: "20.2 g",
-      saturatedFat: "6.6 g",
-      carbs: "45.1 g",
-      protein: "13.5 g",
-      salt: "0.9 g",
+      Energy: "329.7 kcal / 1718.6 kJ",
+      Fat: "20.2 g",
+      SaturatedFat: "6.6 g",
+      Carbs: "45.1 g",
+      Protein: "13.5 g",
+      Salt: "0.9 g",
     },
   },
 ];
@@ -197,6 +197,7 @@ const ProductsPage = () => {
   const [category, setCategory] = useState("all");
   const [nutritionOpen, setNutritionOpen] = useState(false);
   const [selectedNutrition, setSelectedNutrition] = useState(null);
+  const [isClosing, setIsClosing] = useState(false);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -218,8 +219,12 @@ const ProductsPage = () => {
   };
 
   const handleNutritionClose = () => {
-    setNutritionOpen(false);
-    setSelectedNutrition(null);
+    setIsClosing(true); // Kapanma işlemini başlat
+    setTimeout(() => {
+      setNutritionOpen(false); // Dialog tamamen kapatılıyor
+      setSelectedNutrition(null);
+      setIsClosing(false); // Kapanma durumu sıfırlanıyor
+    }, 100); // Geçiş süresiyle aynı olacak şekilde ayarlanıyor
   };
 
   const filteredProducts =
@@ -289,113 +294,22 @@ const ProductsPage = () => {
       <StyledDialog
         open={nutritionOpen}
         onClose={handleNutritionClose}
-        aria-labelledby="nutrition-dialog-title"
-        aria-describedby="nutrition-dialog-description"
+        TransitionComponent={Fade}
+        transitionDuration={{ enter: 1000, exit: 100 }}
       >
-        <DialogTitle id="nutrition-dialog-title">
-          {selectedNutrition?.name} - Besin Değerleri
-        </DialogTitle>
+        <DialogTitle>{selectedNutrition?.name} - Besin Değerleri</DialogTitle>
         <DialogContent>
-          {selectedNutrition && (
-            <div>
-              <Typography
-                variant="h8"
-                sx={{ fontFamily: "'Poppins', sans-serif" }}
-              >
-                Enerji:
-                <Typography
-                  variant="body1"
-                  sx={{
-                    ml: 1,
-                    display: "inline",
-                    fontFamily: "'Poppins', sans-serif",
-                  }}
-                >
-                  {selectedNutrition.nutrition.energy} <br />
-                </Typography>
-              </Typography>
-              <Typography
-                variant="h8"
-                sx={{ fontFamily: "'Poppins', sans-serif" }}
-              >
-                Yağ:
-                <Typography
-                  variant="body1"
-                  sx={{
-                    ml: 1,
-                    display: "inline",
-                    fontFamily: "'Poppins', sans-serif",
-                  }}
-                >
-                  {selectedNutrition.nutrition.fat} <br />
-                </Typography>
-              </Typography>
-              <Typography
-                variant="h8"
-                sx={{ fontFamily: "'Poppins', sans-serif" }}
-              >
-                Doymuş Yağ:
-                <Typography
-                  variant="body1"
-                  sx={{
-                    ml: 1,
-                    display: "inline",
-                    fontFamily: "'Poppins', sans-serif",
-                  }}
-                >
-                  {selectedNutrition.nutrition.saturatedFat} <br />
-                </Typography>
-              </Typography>
-              <Typography
-                variant="h8"
-                sx={{ fontFamily: "'Poppins', sans-serif" }}
-              >
-                Karbonhidrat:
-                <Typography
-                  variant="body1"
-                  sx={{
-                    ml: 1,
-                    display: "inline",
-                    fontFamily: "'Poppins', sans-serif",
-                  }}
-                >
-                  {selectedNutrition.nutrition.carbs} <br />
-                </Typography>
-              </Typography>
-              <Typography
-                variant="h8"
-                sx={{ fontFamily: "'Poppins', sans-serif" }}
-              >
-                Protein:
-                <Typography
-                  variant="body1"
-                  sx={{
-                    ml: 1,
-                    display: "inline",
-                    fontFamily: "'Poppins', sans-serif",
-                  }}
-                >
-                  {selectedNutrition.nutrition.protein} <br />
-                </Typography>
-              </Typography>
-              <Typography
-                variant="h8"
-                sx={{ fontFamily: "'Poppins', sans-serif" }}
-              >
-                Tuz:
-                <Typography
-                  variant="body1"
-                  sx={{
-                    ml: 1,
-                    display: "inline",
-                    fontFamily: "'Poppins', sans-serif",
-                  }}
-                >
-                  {selectedNutrition.nutrition.salt}
-                </Typography>
-              </Typography>
-            </div>
-          )}
+          <Typography variant="body1">
+            {selectedNutrition &&
+              Object.entries(selectedNutrition.nutrition).map(
+                ([key, value]) => (
+                  <Typography sx={{ marginTop: 2 }} key={key}>
+                    <span style={{ fontWeight: "bold" }}>{key}:&nbsp;</span>
+                    {value}
+                  </Typography>
+                )
+              )}
+          </Typography>
         </DialogContent>
       </StyledDialog>
     </div>
