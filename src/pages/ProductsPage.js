@@ -42,18 +42,16 @@ const ProductCard = styled(Card)(({ theme }) => ({
 const ProductImage = styled(CardMedia)(({ theme }) => ({
   transition: "transform 0.3s ease-in-out",
   "&:hover": {
-    transform: "scale(1.6)",
+    transform: "scale(1.7)",
   },
 }));
 
 // Title styles
 const ProductTitle = styled(Typography)(({ theme }) => ({
   fontFamily: "'Poppins', sans-serif",
-  fontSize: "16px",
   fontWeight: 600,
   textAlign: "center",
   color: "#6F1D1B",
-  marginTop: 3,
 }));
 
 // Styled Dialog components
@@ -248,9 +246,24 @@ const ProductsPage = () => {
           open={Boolean(anchorEl)}
           onClose={() => handleClose(null)}
         >
-          <MenuItem onClick={() => handleClose("all")}>Tüm Ürünler</MenuItem>
-          <MenuItem onClick={() => handleClose("tost")}>Tost</MenuItem>
-          <MenuItem onClick={() => handleClose("sandwich")}>Sandviç</MenuItem>
+          <MenuItem
+            sx={{ fontFamily: "Poppins, sans-serif" }}
+            onClick={() => handleClose("all")}
+          >
+            Tüm Ürünler
+          </MenuItem>
+          <MenuItem
+            sx={{ fontFamily: "Poppins, sans-serif" }}
+            onClick={() => handleClose("tost")}
+          >
+            Tost
+          </MenuItem>
+          <MenuItem
+            sx={{ fontFamily: "Poppins, sans-serif" }}
+            onClick={() => handleClose("sandwich")}
+          >
+            Sandviç
+          </MenuItem>
         </Menu>
 
         {/* Product Grid */}
@@ -259,24 +272,25 @@ const ProductsPage = () => {
           spacing={3}
           justifyContent="center"
           alignItems="center"
-          sx={{ minHeight: "calc(100vh - 370px)" }}
+          sx={{ minHeight: "calc(100vh - 400px)" }}
         >
           {filteredProducts.map((product) => (
             <Grid item xs={12} sm={6} md={3} key={product.id}>
               <ProductCard>
                 <ProductImage
                   component="img"
-                  height="300"
+                  height="320"
                   image={product.image}
                   alt={product.name}
                 />
                 <CardContent>
                   <Grid
                     container
+                    flexDirection="column"
                     alignItems="center"
-                    justifyContent="space-between"
+                    justifyContent="center"
                   >
-                    <ProductTitle variant="h6">{product.name}</ProductTitle>
+                    <ProductTitle variant="h7">{product.name}</ProductTitle>
                     <IconButton
                       onClick={() => handleNutritionOpen(product.name)}
                     >
