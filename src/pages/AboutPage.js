@@ -68,16 +68,16 @@ const AboutPage = () => {
               fontSize: { xs: "0.9rem", md: "1.1rem" },
             }}
           >
-            Musto Originals şirketi olarak, kalite anlayışımızın köklerinin
-            ailemize dayandığını ve bu anlayışın iş hayatımıza ve topluma
-            yayıldığını belirtmek isteriz. Kaliteli tedarikçilerimizle, özenle
-            seçilmiş malzemelerimizle ve memnuniyet odaklı tüketicilerimizle bir
-            araya gelerek büyük bir aile oluşturuyoruz. İçimizdeki "biz"
-            anlayışı, bu kalite bilincinin temel taşıdır ve biz, bu bilinçle
-            hareket ediyoruz. Müşterilerimize sunmuş olduğumuz lezzetler,
-            yalnızca damak tadını değil, aynı zamanda toplumsal bir sorumluluğu
-            da yansıtır. Her lokmamızda, ailemizin sıcaklığını ve kalitemizi
-            hissetmenizi sağlamak için buradayız.
+            Musto Gıda şirketi olarak, kalite anlayışımızın köklerinin ailemize
+            dayandığını ve bu anlayışın iş hayatımıza ve topluma yayıldığını
+            belirtmek isteriz. Kaliteli tedarikçilerimizle, özenle seçilmiş
+            malzemelerimizle ve memnuniyet odaklı tüketicilerimizle bir araya
+            gelerek büyük bir aile oluşturuyoruz. İçimizdeki "biz" anlayışı, bu
+            kalite bilincinin temel taşıdır ve biz, bu bilinçle hareket
+            ediyoruz. Müşterilerimize sunmuş olduğumuz lezzetler, yalnızca damak
+            tadını değil, aynı zamanda toplumsal bir sorumluluğu da yansıtır.
+            Her lokmamızda, ailemizin sıcaklığını ve kalitemizi hissetmenizi
+            sağlamak için buradayız.
           </Typography>
 
           <Typography

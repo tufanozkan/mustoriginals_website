@@ -41,8 +41,10 @@ const ProductCard = styled(Card)(({ theme }) => ({
 // Image styles
 const ProductImage = styled(CardMedia)(({ theme }) => ({
   transition: "transform 0.3s ease-in-out",
-  "&:hover": {
-    transform: "scale(1.7)",
+  "@media (min-width: 768px)": {
+    "&:hover": {
+      transform: "scale(1.7)",
+    },
   },
 }));
 
@@ -96,96 +98,96 @@ const nutritionFacts = [
     id: 1,
     name: "Musto Tost",
     nutrition: {
-      Energy: "289.7 kcal / 1218.6 kJ",
-      Fat: "12.2 g",
-      SaturatedFat: "4.6 g",
-      Carbs: "34.1 g",
+      Enerji: "289.7 kcal / 1218.6 kJ",
+      Yağ: "12.2 g",
+      DoymuşYağ: "4.6 g",
+      Karbonhidrat: "34.1 g",
       Protein: "11.5 g",
-      Salt: "0.9 g",
+      Tuz: "0.9 g",
     },
   },
   {
     id: 2,
     name: "Kumru",
     nutrition: {
-      Energy: "279.8 kcal / 1176.3 kJ",
-      Fat: "11.72 g",
-      SaturatedFat: "3.9 g",
-      Carbs: "32.7 g",
+      Enerji: "279.8 kcal / 1176.3 kJ",
+      Yağ: "11.72 g",
+      DoymuşYağ: "3.9 g",
+      Karbonhidrat: "32.7 g",
       Protein: "10.8 g",
-      Salt: "1.0 g",
+      Tuz: "1.0 g",
     },
   },
   {
     id: 3,
     name: "Ayvalık Tostu",
     nutrition: {
-      Energy: "289.7 kcal / 1218.6 kJ",
-      Fat: "12.2 g",
-      SaturatedFat: "4.6 g",
-      Carbs: "34.1 g",
+      Enerji: "289.7 kcal / 1218.6 kJ",
+      Yağ: "12.2 g",
+      DoymuşYağ: "4.6 g",
+      Karbonhidrat: "34.1 g",
       Protein: "11.5 g",
-      Salt: "0.9 g",
+      Tuz: "0.9 g",
     },
   },
   {
     id: 4,
     name: "Beyaz Peynirli Sandwich",
     nutrition: {
-      Energy: "289.7 kcal / 1218.6 kJ",
-      Fat: "12.2 g",
-      SaturatedFat: "4.6 g",
-      Carbs: "34.1 g",
+      Enerji: "289.7 kcal / 1218.6 kJ",
+      Yağ: "12.2 g",
+      DoymuşYağ: "4.6 g",
+      Karbonhidrat: "34.1 g",
       Protein: "11.5 g",
-      Salt: "0.9 g",
+      Tuz: "0.9 g",
     },
   },
   {
     id: 5,
     name: "Kaşarlı Tost",
     nutrition: {
-      Energy: "282 kcal / 1189 kJ",
-      Fat: "8.3 g",
-      SaturatedFat: "4.4 g",
-      Carbs: "37.8 g",
+      Enerji: "282 kcal / 1189 kJ",
+      Yağ: "8.3 g",
+      DoymuşYağ: "4.4 g",
+      Karbonhidrat: "37.8 g",
       Protein: "13 g",
-      Salt: "1.0 g",
+      Tuz: "1.0 g",
     },
   },
   {
     id: 6,
     name: "Hamburger",
     nutrition: {
-      Energy: "210.8 kcal / 878.7 kJ",
-      Fat: "7.4 g",
-      SaturatedFat: "2.2 g",
-      Carbs: "26.1 g",
+      Enerji: "210.8 kcal / 878.7 kJ",
+      Yağ: "7.4 g",
+      DoymuşYağ: "2.2 g",
+      Karbonhidrat: "26.1 g",
       Protein: "8.9 g",
-      Salt: "0.8 g",
+      Tuz: "0.8 g",
     },
   },
   {
     id: 7,
     name: "Kaşarlı Salamlı Sandwich",
     nutrition: {
-      Energy: "210.8 kcal / 878.7 kJ",
-      Fat: "7.4 g",
-      SaturatedFat: "2.2 g",
-      Carbs: "26.1 g",
-      Protein: "8.9 g",
-      Salt: "0.8 g",
+      Enerji: "234.8 kcal / 989.4 kJ",
+      Yağ: "6.7 g",
+      DoymuşYağ: "3.1 g",
+      Karbonhidrat: "32.2 g",
+      Protein: "9.9 g",
+      Tuz: "0.9 g",
     },
   },
   {
     id: 8,
     name: "Sucuklu Tost",
     nutrition: {
-      Energy: "329.7 kcal / 1718.6 kJ",
-      Fat: "20.2 g",
-      SaturatedFat: "6.6 g",
-      Carbs: "45.1 g",
-      Protein: "13.5 g",
-      Salt: "0.9 g",
+      Enerji: "267.2 kcal / 1123.2 kJ",
+      Yağ: "9.0 g",
+      DoymuşYağ: "4.7 g",
+      Karbonhidrat: "37.5 g",
+      Protein: "10.9 g",
+      Tuz: "0.9 g",
     },
   },
 ];
@@ -325,6 +327,7 @@ const ProductsPage = () => {
               )}
           </Typography>
         </DialogContent>
+        <DialogTitle>Bu değerler ortalama besin değerleridir.</DialogTitle>
       </StyledDialog>
     </div>
   );

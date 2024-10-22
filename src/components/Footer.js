@@ -45,7 +45,7 @@ const Footer = () => {
           marginBottom: 1,
         }}
       >
-        &copy; 2024 Musto Originals. Tüm hakları saklıdır.
+        &copy; 2024 Musto Gıda. Tüm hakları saklıdır.
       </Typography>
 
       {/* Footer Content Section */}
@@ -58,7 +58,7 @@ const Footer = () => {
               href="mailto:info@mustoinvest.com.tr"
               style={{ color: "#ffffff", textDecoration: "underline" }}
             >
-              info@mustoinvest.com.tr
+              info@mustogida.com.tr
             </a>
           </Typography>
         </Grid>

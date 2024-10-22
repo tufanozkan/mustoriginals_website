@@ -5,6 +5,7 @@ import {
   IconButton,
   Typography,
   Button,
+  Box,
   Menu,
   MenuItem,
   useMediaQuery,
@@ -28,29 +29,37 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#6f1d1b" }}>
-      {" "}
-      {/* Dark Red */}
-      <Toolbar>
-        <img
-          src={logo}
-          alt="Logo"
-          style={{ maxWidth: "120px", height: "auto", marginRight: "16px" }}
-        />
-
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{
-            flexGrow: 1,
-            color: "#ffe6a7", // Light Cream
-            fontFamily: "Poppins, sans-serif", // Creative and elegant font
-            fontWeight: "700", // Bold weight
-            letterSpacing: "0.1em", // Slight letter spacing for a modern look
-          }}
+    <AppBar position="static" sx={{ margin: 0, backgroundColor: "#6f1d1b" }}>
+      <Toolbar sx={{ justifyContent: "space-between" }}>
+        <Box
+          sx={{ alignItems: "center", display: "flex", flexDirection: "row" }}
         >
-          Musto Gıda
-        </Typography>
+          {/* Wrap the logo in a Link component to navigate to the homepage */}
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <img
+              src={logo}
+              alt="Logo"
+              style={{ maxWidth: "120px", height: "auto", marginRight: "16px" }}
+            />
+          </Link>
+
+          {/* Wrap the Typography (Musto Gıda) in a Link to navigate to the homepage */}
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{
+                flexGrow: 1,
+                color: "#ffe6a7", // Light Cream
+                fontFamily: "Poppins, sans-serif", // Creative and elegant font
+                fontWeight: "700", // Bold weight
+                letterSpacing: "0.1em", // Slight letter spacing for a modern look
+              }}
+            >
+              Musto Gıda
+            </Typography>
+          </Link>
+        </Box>
 
         {/* Desktop Menu, only shown on screens wider than 900px */}
         {!isTabletOrMobile && (

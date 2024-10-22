@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Typography, Button, Grid, Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/system";
-import image from "../assets/toasts/musto.jpg";
+import image from "../assets/toasts/kasarli.jpg";
 import sandwichIcon from "../assets/icons/sandwich.svg";
 import truckIcon from "../assets/icons/truck.svg";
 import tableIcon from "../assets/icons/table.svg";
@@ -125,7 +125,7 @@ const HomePage = () => {
               textAlign: "center", // Centered text for better aesthetics
             }}
           >
-            Güçlü Lezzetlerle Tanışın
+            Taze malzemelerle hazırlanan benzersiz lezzet
           </Typography>
           <Button
             variant="contained"
@@ -210,7 +210,7 @@ const HomePage = () => {
             },
             {
               icon: truckIcon,
-              title: "Soğuk Zincir",
+              title: "Kaliteyi Sizlere Getirir",
               description:
                 "Ürünlerimizin tazeliğini korumak için en gelişmiş soğuk zincir teknolojisi ile en ideal koşullarda sizlere ulaştırıyoruz.",
             },
