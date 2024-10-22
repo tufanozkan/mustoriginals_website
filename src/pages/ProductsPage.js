@@ -274,7 +274,7 @@ const ProductsPage = () => {
           spacing={3}
           justifyContent="center"
           alignItems="center"
-          sx={{ minHeight: "calc(100vh - 400px)" }}
+          sx={{ minHeight: "calc(100vh - 300px)" }}
         >
           {filteredProducts.map((product) => (
             <Grid item xs={12} sm={6} md={3} key={product.id}>

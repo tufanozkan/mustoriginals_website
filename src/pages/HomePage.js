@@ -15,13 +15,14 @@ const HeroSection = styled(Box)(({ theme }) => ({
   height: "65vh",
   display: "flex",
   alignItems: "center",
-  justifyContent: "flex-start",
+  justifyContent: "center", // Center both vertically and horizontally
+  alignSelf: "center",
+  textAlign: "center",
   padding: theme.spacing(4),
   overflow: "hidden",
-  flexDirection: "column", // Column layout for mobile and tablet
+  flexDirection: "column", // Mobile ve tablet için sütun düzeni
   "@media (min-width:900px)": {
-    flexDirection: "row", // Row layout for larger screens
-    justifyContent: "flex-start",
+    flexDirection: "row", // Daha büyük ekranlar için satır düzeni
   },
   "& h1, & button": {
     position: "relative",
@@ -35,7 +36,7 @@ const HeroSection = styled(Box)(({ theme }) => ({
     fontWeight: "600",
     letterSpacing: "0.1em",
     textTransform: "uppercase",
-    fontSize: { xs: "1.8rem", sm: "2.2rem", md: "3rem", lg: "4rem" }, // Adjusted for mobile
+    fontSize: { xs: "1.8rem", sm: "2.2rem", md: "3rem", lg: "4rem" },
     marginBottom: theme.spacing(2),
   },
   "@keyframes slideIn": {
@@ -52,17 +53,18 @@ const HeroSection = styled(Box)(({ theme }) => ({
 
 // Styled component for the background image
 const HeroImage = styled(Box)(({ theme }) => ({
-  position: "relative", // Changed from absolute to relative for stacking
-  width: "100%", // Full width for mobile view
+  position: "relative",
+  width: "100%",
   height: "100%",
   border: "2px solid #ffe6a7",
   borderRadius: "12px",
   backgroundImage: `url(${image})`,
-  backgroundSize: "cover", // Adjust background size to fit the container
+  backgroundSize: "cover",
   backgroundPosition: "center",
   zIndex: 0,
   animation: "slideInImage 2.1s ease-out forwards",
   opacity: 0,
+  margin: theme.spacing(2), // Kenarlarda boşluk ekledik
   "@keyframes slideInImage": {
     from: {
       transform: "translateX(100%)",
@@ -109,6 +111,10 @@ const HomePage = () => {
             mb: { xs: 3, md: 3 },
             width: { xs: "100%", sm: "100%", md: "50%" },
             maxWidth: "500px",
+            display: "flex", // Use flex for centering
+            flexDirection: "column", // Align content in column
+            alignItems: "center", // Center items horizontally
+            justifyContent: "center", // Center items vertically
           }}
         >
           {/* Content on the left */}
