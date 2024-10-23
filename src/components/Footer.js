@@ -55,7 +55,7 @@ const Footer = () => {
           <Typography variant="body2" sx={{ mx: 2 }}>
             Bizimle İletişime Geçin: <br />
             <a
-              href="mailto:info@mustoinvest.com.tr"
+              href="mailto:info@mustogida.com.tr"
               style={{ color: "#ffffff", textDecoration: "underline" }}
             >
               info@mustogida.com.tr
